@@ -1,7 +1,10 @@
 
-#----------------------------------------Models---------------------------------------------
-#------------Ticket Model--------------
+
+//----------------------------------------------------------------Models------------------------------------------------------------------
+
+//------------Ticket Model--------------
       
+
 class Ticket{
    int id;
    String name;   
@@ -16,17 +19,20 @@ class Ticket{
    Status status;     
 };
 
+
 //Ticket assigned users      
 class UserTickets{
       User user;
       Ticket ticket;      
  }     
+
       
 //Labels & Identifiers      
 class TicketTag{
    int id;
    int name;   
 };
+
 
 //Code & Repository      
 class Project{
@@ -36,6 +42,7 @@ class Project{
     String version;  
 };
   
+
 //Sprint creation      
 class Milestone{
     int id;
@@ -43,12 +50,15 @@ class Milestone{
     Date startDate;
     Date endDate;  
 };
+
       
 enum Status{
     CREATED, IN_PROGRESS, CLOSED;
 };          
       
-#--------------User Model----------------
+
+//--------------User Model----------------
+
       
 class Users{
    int id;
@@ -80,8 +90,9 @@ enum Action{
 enum Module{
     ADMIN_SCREEN, TICKET_SCREEN, REPO_SCREEN, MILESTONE_SCREEN,  DASHBOARD;
 };      
+
       
-#--------------Audit Model----------------
+//--------------Audit Model----------------
       
       
 class Audit{
@@ -92,7 +103,7 @@ class Audit{
       Date currentDate;
 };
       
-#------------------------------------Controllers-----------------------------------------    
+//-----------------------------------------------------------Controllers---------------------------------------------------------------    
       
       
       
