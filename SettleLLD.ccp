@@ -1,5 +1,5 @@
 
-#----------------------------------------Defining Models---------------------------------------------
+#----------------------------------------Models---------------------------------------------
 #------------Ticket Model--------------
       
 class Ticket{
@@ -81,7 +81,21 @@ enum Module{
     ADMIN_SCREEN, TICKET_SCREEN, REPO_SCREEN, MILESTONE_SCREEN,  DASHBOARD;
 };      
       
-
+#--------------Audit Model----------------
+      
+      
+class Audit{
+      int aditId;
+      Json Ticket ticket;
+      String version;
+      Status status;
+      Date currentDate;
+};
+      
+#------------------------------------Controllers-----------------------------------------    
+      
+      
+      
       
       
       
