@@ -12,7 +12,7 @@ class Ticket{
    Project assignedProject; // AssignedProject
    Set<TicketTag>ticketTags; // User defined labels & tags
    Milestone milestone; // Sprint
-   Set<Ticket> dependentTickets; // DAG   
+   Set<Ticket> dependentTickets;    
    Date startDate;
    Date endDate;
    Date estimatedDate;   
@@ -51,7 +51,7 @@ class Milestone{
     Date endDate;  
 };
 
-      
+//Ticket Status      
 enum Status{
     CREATED, IN_PROGRESS, CLOSED;
 };          
@@ -103,7 +103,68 @@ class Audit{
       Date currentDate;
 };
       
-//-----------------------------------------------------------Controllers---------------------------------------------------------------    
+//-----------------------------------------------------------Controllers---------------------------------------------------------------  
+
+class ProjectController{
+      Project addProject(Project project);
+      Project editProject(Project project);
+      Project getProject(int projectId);
+      List<Project> getProjectsByUserId(int userId); // User based projects
+      List<Project> getAllProjects();
+}
+
+
+class TicketController{
+      Ticket addTicket(Ticket Ticket);
+      Ticket editTicket(Ticket Ticket);
+      Ticket getTicket(int TicketId);
+      List<Ticket> getTicketsByUserId(int userId); // User based tickets
+      List<Ticket> getAllTickets();
+      
+}
+
+
+class UserACMController{
+      User addUser(User User);
+      User editUser(User User);
+      User getUser(int UserId);
+      List<User> getAllUsers();
+      List<UserRoles> getUserRoles(int UserId);
+}
+
+
+class MilestoneController{
+      Milestone addMilestone(Milestone Milestone);
+      Milestone editMilestone(Milestone Milestone);
+      Milestone getMilestone(int MilestoneId);
+      List<Milestone> getAllMilestones();
+}
+
+//-----------------------------------------------------------Interceptor---------------------------------------------------------------  
+
+class UserACMInterceptor implements HandlerInterceptor{
+   @Override
+   public boolean preHandle(
+      HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+         //User Authentication & Authorization
+         //User role based access check
+         //Module wise user access restriction
+         //Action based user access restriction
+      return true;
+   }
+   @Override
+   public void postHandle(
+      HttpServletRequest request, HttpServletResponse response, Object handler, 
+      ModelAndView modelAndView) throws Exception {
+               //Logs and Error handling
+               //Audit handling
+               //Response Formatters       
+   }
+}
+
+
+
+
       
       
       
